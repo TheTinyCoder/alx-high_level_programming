@@ -1,4 +1,4 @@
-# alx-high_level_programming
+# alx-higher_level_programming
 
 ## Requirements
 
