@@ -15,9 +15,9 @@ int check_cycle(listint_t *head)
 
 	if (head)
 	{
-		for (temp1 = head; temp1->next; temp1 = temp1->next)
+		for (temp1 = head->next; temp1->next; temp1 = temp1->next)
 		{
-			for (temp2 = temp1->next; temp2->next; temp2 = temp2->next)
+			for (temp2 = head; temp2->next; temp2 = temp2->next)
 			{
 				if (temp2 == temp1)
 					return (1);
