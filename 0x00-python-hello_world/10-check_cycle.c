@@ -13,12 +13,15 @@ int check_cycle(listint_t *head)
 {
 	nodePtr temp1, temp2;
 
-	for (temp1 = head; temp1->next; temp1 = temp1->next)
+	if (head)
 	{
-		for (temp2 = temp1->next; temp2->next; temp2 = temp2->next)
+		for (temp1 = head; temp1->next; temp1 = temp1->next)
 		{
-			if (temp2 == temp1)
-				return (1);
+			for (temp2 = temp1->next; temp2->next; temp2 = temp2->next)
+			{
+				if (temp2 == temp1)
+					return (1);
+			}
 		}
 	}
 	return (0);
