@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-import dis
-
-
+#import dis
 def magic_calculation(a, b):
-    b = 98
-    return ((b ** a) + b)
+    return ((98) + a ** b)
+#dis.dis(magic_calculation)
