@@ -16,7 +16,7 @@ if __name__ == "__main__":
         print("{} + {} = {}".format(a, b, calc.add(a, b)))
     elif (argv[2] == '-'):
         print("{} - {} = {}".format(a, b, calc.sub(a, b)))
-    elif (arg[2] == '*'):
+    elif (argv[2] == '*'):
         print("{} * {} = {}".format(a, b, calc.mul(a, b)))
     else:
         print("{} / {} = {}".format(a, b, calc.div(a, b)))
