@@ -26,7 +26,6 @@ int is_palindrome(listint_t **head)
 		x -= 1;
 		for (y = 0; y < x; y++)
 		{
-			printf("(y:%d - x:%d)\n", y, x);
 			if (z[y] != z[x])
 			{
 				free(z);
