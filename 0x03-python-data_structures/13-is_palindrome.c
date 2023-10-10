@@ -29,8 +29,10 @@ int is_palindrome(listint_t **head)
 			for (y = 0; y < x / 2; y++)
 				temp = temp->next;
 		}
+		/* reverse other half of list */
 		temp1 = reverse_list(&(temp->next));
 		temp = *head;
+		/* compare first half to second half */
 		for (y = 0; y < x / 2; y++)
 		{
 			if (temp->n != temp1->n)
