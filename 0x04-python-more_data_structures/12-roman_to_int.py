@@ -4,6 +4,8 @@
 
 
 def roman_to_int(roman_string):
+    if (roman_string is None or not roman_string.isalpha()):
+        return (0)
     roman_string = roman_string.upper()
     set_1 = ('CM', 'CD', 'XC', 'XL', 'IX', 'IV')
     roman_list = []
