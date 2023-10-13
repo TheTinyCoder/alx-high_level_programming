@@ -12,9 +12,9 @@ def roman_to_int(roman_string):
     i = 0
     while i < len(roman_string):
         if (i + 1 < len(roman_string)):
-            str = roman_string[i] + roman_string[i + 1]
-            if str in set_1:
-                roman_list.append(str)
+            string = roman_string[i] + roman_string[i + 1]
+            if string in set_1:
+                roman_list.append(string)
                 i += 2
                 continue
         if (i < len(roman_string)):
