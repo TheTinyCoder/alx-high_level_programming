@@ -1,27 +1,18 @@
 #!/usr/bin/python3
-import re
 """ Roman to Integer conversion
 """
 
 
 def roman_to_int(roman_string):
-    roman_string = roman_string.upper()
+    roman_string = [i for i in roman_string.upper()]
     a_dict = {
-        'ones': ['IX', 'VIII', 'VII', 'VI', 'V', 'IV', 'III', 'II', 'I'],
-        'tens': ['XC', 'LXXX', 'LXX', 'LX', 'L', 'XL', 'XXX', 'XX', 'X'],
-        'huns': ['CM', 'DCCC', 'DCC', 'DC', 'D', 'CD', 'CCC', 'CC', 'C'],
-        'thous': ['MMM', 'MM', 'M']
-    }
+        'M': 1000, 'CM': 900, 'D': 500, 'CD': 400, 'C': 100,
+        'XC': 90, 'L': 50, 'XL': 40, 'X': 10, 'IX': 9, 'VIII': 8,
+        'VII': 7, 'VI': 6, 'V': 5, 'IV': 4, 'III': 3, 'II': 2, 'I': 1}
     number = 0
-    while (len(roman_string) > 0):
-        for key, values in a_dict.items():
-            for value in values:
-                str = re.match(f"^{value}", roman_string)
-                if (str):
-                    value_index = list(values).index(value)
-                    number += (
-                        (10 ** (list(a_dict.keys()).index(key))) *
-                        (len(values) - value_index)
-                    )
-                    roman_string = roman_string.removeprefix(str.group())
+    for i in roman_string:
+        for key, value in a_dict.items():
+            if (i == key):
+                number = (value - number if (number < value)
+                          else number + value)
     return (number)
