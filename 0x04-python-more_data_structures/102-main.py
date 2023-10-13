@@ -15,3 +15,12 @@ new_dict = complex_delete(a_dictionary, 'c_is_fun')
 print_sorted_dictionary(a_dictionary)
 print("--")
 print_sorted_dictionary(new_dict)
+print("--")
+print("--")
+print("xx")
+my_dict = { 'a': "a", 'b': "b" , 'c': "c", 'd': "d", 'e': "e" }
+value = 'e'
+new_dict = complex_delete(my_dict, value)
+print_sorted_dictionary(my_dict)
+print("xx")
+print_sorted_dictionary(new_dict)
