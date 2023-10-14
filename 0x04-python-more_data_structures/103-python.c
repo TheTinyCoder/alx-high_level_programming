@@ -13,7 +13,7 @@
 
 void print_python_bytes(PyObject *p)
 {
-	int i, j, k, l;
+	int i, j, k;
 	const char *s, *t;
 
 	t = ((PyTypeObject *)(p)->ob_type)->tp_name;
@@ -22,18 +22,17 @@ void print_python_bytes(PyObject *p)
 	{
 		j = PyBytes_Size(p);
 		s = PyBytes_AsString(p);
-		k = j <= 10 ? j : 10;
-		l = k == 10 ? k : k + 1;
+		k = j <= 10 ? j + 1 : 10;
 		printf("[.] bytes object info\n");
 		printf("  size: %d\n", j);
 		printf("  trying string: %s\n", s);
-		printf("  first %d bytes: ", l);
-		for (i = 0;  i < k; i++)
+		printf("  first %d bytes: ", k);
+		for (i = 0;  i < k - 1; i++)
 			printf("%.2hhx ", s[i]);
-		if (k < 10)
+		if (j < 10)
 			printf("%.2x\n", '\0');
 		else
-			printf("\n");
+			printf("%.2hhx\n", s[i]);
 	}
 	else
 	{
