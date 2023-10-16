@@ -49,7 +49,7 @@ void print_python_bytes(PyObject *p)
 
 void print_python_float(PyObject *p)
 {
-	int i = 0;
+	float i = 0.0;
 	const char *s;
 
 	s = ((PyTypeObject *)(p)->ob_type)->tp_name;
@@ -57,8 +57,9 @@ void print_python_float(PyObject *p)
 	if (strcmp(s, "float") == 0)
 	{
 		printf("  value: ");
-		i = printf("%g", PyFloat_AsDouble(p));
-		if (i == 1 || i == 2)
+		printf("%g", PyFloat_AsDouble(p));
+		i = (float)((int)PyFloat_AsDouble(p)) - PyFloat_AsDouble(p);
+		if (i == 0.0)
 			printf(".0\n");
 		else
 			printf("\n");
