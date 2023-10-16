@@ -39,3 +39,9 @@ print(l)
 lib.print_python_list(l);
 lib.print_python_float(l);
 lib.print_python_list(f);
+print("---")
+s = b"Holberton School"
+lib.print_python_bytes(s)
+b = b'New String'
+lib.print_python_bytes(b)
+print("---")
