@@ -64,7 +64,7 @@ void print_python_float(PyObject *p)
 			printf("\n");
 	}
 	else
-		printf("  [ERROR] Invalid FLoat Object\n");
+		printf("  [ERROR] Invalid Float Object\n");
 	fflush(stdout);
 }
 
