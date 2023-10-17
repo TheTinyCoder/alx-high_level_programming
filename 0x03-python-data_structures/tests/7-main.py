@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+import sys
+sys.path.append('../')
+
 add_tuple = __import__('7-add_tuple').add_tuple
 
 tuple_a = (1, 89)

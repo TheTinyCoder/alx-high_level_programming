@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+import sys
+sys.path.append('../')
+
 no_c = __import__('5-no_c').no_c
 
 print(no_c("Best School"))

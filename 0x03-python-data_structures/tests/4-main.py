@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+import sys
+sys.path.append('../')
+
 new_in_list = __import__('4-new_in_list').new_in_list
 
 my_list = [1, 2, 3, 4, 5]
