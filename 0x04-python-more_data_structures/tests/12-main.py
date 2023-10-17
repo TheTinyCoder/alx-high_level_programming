@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+import sys
+sys.path.append('../')
+
 """ Roman to Integer test file
 """
 roman_to_int = __import__('12-roman_to_int').roman_to_int

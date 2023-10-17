@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+import sys
+sys.path.append('../')
+
 common_elements = __import__('3-common_elements').common_elements
 
 set_1 = { "Python", "C", "Javascript" }

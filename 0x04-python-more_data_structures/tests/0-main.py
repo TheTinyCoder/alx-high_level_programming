@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+import sys
+sys.path.append('../')
+
 square_matrix_simple = __import__('0-square_matrix_simple').square_matrix_simple
 
 matrix = [

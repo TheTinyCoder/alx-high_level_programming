@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+import sys
+sys.path.append('../')
+
 best_score = __import__('10-best_score').best_score
 
 a_dictionary = {'John': 12, 'Bob': 14, 'Mike': 14, 'Molly': 16, 'Adam': 10}

@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+import sys
+sys.path.append('../')
+
 number_keys = __import__('5-number_keys').number_keys
 
 a_dictionary = { 'language': "C", 'number': 13, 'track': "Low level" }
