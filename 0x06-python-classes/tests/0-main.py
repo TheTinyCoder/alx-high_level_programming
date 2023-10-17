@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""Tests for 0-square"""
+import sys
+sys.path.append('../')
 Square = __import__('0-square').Square
 
 my_square = Square()
