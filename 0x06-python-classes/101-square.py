@@ -81,6 +81,6 @@ class Square:
         if (size == 0):
             square_string = ""
         else:
-            square_string = (("\n" * position[1]) + (" " * position[0])
-                             + (("#" * size) + "\n") * size)
+            square_string = (("\n" * position[1]) + (((" " * position[0])
+                             + ("#" * size) + "\n") * size))
             return (square_string)
