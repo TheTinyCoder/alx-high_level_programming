@@ -77,13 +77,10 @@ class Square:
         """
         Defines how instance of Square will be printed on print()
         """
-        square_string = ""
         size, position = self.__size, self.__position
         if (size == 0):
-            return ("\n")
+            square_string = ""
         else:
-            for i in range(position[1]):
-                square_string += "\n"
-            for i in range(size):
-                square_string += (" " * position[0]) + ("#" * size) + "\n"
+            square_string = (("\n" * position[1]) + (" " * position[0])
+                             + (("#" * size) + "\n") * size)
             return (square_string)
