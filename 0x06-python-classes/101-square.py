@@ -83,4 +83,4 @@ class Square:
         else:
             square_string = (("\n" * position[1]) + (((" " * position[0])
                              + ("#" * size) + "\n") * size))
-            return (square_string)
+        return (square_string)
