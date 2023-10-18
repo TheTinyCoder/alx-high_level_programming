@@ -80,7 +80,7 @@ class Square:
         square_string = ""
         size, position = self.__size, self.__position
         if (size == 0):
-            return (square_string)
+            return ("\n")
         else:
             for i in range(position[1]):
                 square_string += "\n"
