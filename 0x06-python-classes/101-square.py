@@ -77,7 +77,7 @@ class Square:
         """
         Defines how instance of Square will be printed on print()
         """
-        size, position = self.__size, self.__position
+        size, position = self.size, self.position
         if (size == 0):
             square_string = ""
         else:
