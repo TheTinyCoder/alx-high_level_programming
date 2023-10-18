@@ -1,7 +1,7 @@
 #!/usr/bin/python3
+"""Module to reproduce bytecode"""
 # import dis
 import math
-"""Module to reproduce bytecode"""
 
 
 class MagicClass:
