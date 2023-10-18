@@ -7,8 +7,8 @@ class Square:
     Square class
 
     Attributes:
-        size (int): length of the square
-        position (tuple of 2 positive int): position of the square
+        __size (int): length of the square
+        __position (tuple of 2 positive int): position of the square
     """
     def __init__(self, size=0, position=(0, 0)):
         self.__size = size
@@ -66,9 +66,9 @@ class Square:
         if (size == 0):
             print()
         else:
+            for i in range(position[1]):
+                print()
             for i in range(size):
-                for i in range(position[0]):
-                    print(" ", end="")
-                for i in range(size):
-                    print("#", end="")
+                print(" " * position[0], end="")
+                print("#" * size, end="")
                 print()
