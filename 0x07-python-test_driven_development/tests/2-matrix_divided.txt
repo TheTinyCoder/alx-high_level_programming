@@ -23,7 +23,7 @@ Testing:
 	...
 	TypeError: matrix must be a matrix (list of lists) of integers/floats
 
-	>>> matrix = [2]
+	>>> matrix = [2, [2]]
 	>>> print(matrix_divided(matrix, 3))
 	Traceback (most recent call last):
 	...
@@ -42,6 +42,11 @@ Testing:
 	TypeError: matrix must be a matrix (list of lists) of integers/floats
 
 	>>> print(matrix_divided([], 1))
+	Traceback (most recent call last):
+	...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+	
+	>>> print(matrix_divided([[], []], 1))
 	Traceback (most recent call last):
 	...
 	TypeError: matrix must be a matrix (list of lists) of integers/floats
