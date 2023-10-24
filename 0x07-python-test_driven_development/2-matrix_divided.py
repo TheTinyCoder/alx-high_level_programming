@@ -28,8 +28,8 @@ def matrix_divided(matrix, div):
         for i in row:
             if not type(i) in (int, float):
                 raise TypeError(error_msg)
-        if len(row) != len(matrix[0]):
-            raise TypeError("Each row of the matrix must have the same size")
+    if not all(len(row) == len(matrix[0]) for row in matrix):
+        raise TypeError("Each row of the matrix must have the same size")
     if not type(div) in (int, float):
         raise TypeError("div must be a number")
     if (div == 0):
