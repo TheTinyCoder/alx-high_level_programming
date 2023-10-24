@@ -19,6 +19,9 @@ def text_indentation(text):
         print(text[i], end="")
         if text[i] == '.' or text[i] == '?' or text[i] == ':':
             print("\n")
-            i += 2 if (text[i + 1] == ' ') else 1
+            j = 1
+            while (text[i + j] == ' '):
+                j += 1
+            i += j
         else:
             i += 1
