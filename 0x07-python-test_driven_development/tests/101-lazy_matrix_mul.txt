@@ -82,6 +82,11 @@ Testing:
 	Traceback (most recent call last):
 	...
 	ValueError: data type must provide an itemsize
+	
+	>>> print(lazy_matrix_mul([[5, 6], [7, 8]], [[5, "6"], [7, 8]]))
+	Traceback (most recent call last):
+	...
+	ValueError: data type must provide an itemsize
 
 	>>> print(lazy_matrix_mul([[1, 2], [3]], [[3, 4], [5, 6]]))
 	Traceback (most recent call last):
