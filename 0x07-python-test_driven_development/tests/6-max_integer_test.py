@@ -3,9 +3,10 @@
 Unit test for max_integer
 """
 
-
 import unittest
 max_integer = __import__('6-max_integer').max_integer
+
+
 class TestMaxInteger(unittest.TestCase):
     """
     Defines tests for the max_integer function
@@ -61,4 +62,4 @@ class TestMaxInteger(unittest.TestCase):
         Checks that correct integer is returned
         """
         with self.assertRaises(KeyError):
-            max_integer({1:1, 4:4, 3:3})
+            max_integer({1: 1, 4: 4, 3: 3})
