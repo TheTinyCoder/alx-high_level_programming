@@ -30,6 +30,7 @@ class TestMaxInteger(unittest.TestCase):
         Checks that correct integer is returned
         """
         self.assertEqual(max_integer([1, 2, 3, 4, 5, 6]), 6)
+        self.assertEqual(max_integer([6, 5, 4, 3, 2, 2]), 6)
 
     def test_list_with_unsorted_numbers(self):
         """
