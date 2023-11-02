@@ -14,6 +14,9 @@ def add_attribute(a_class, attribute, value):
     Raises:
         TypeError if the object can’t have a new attribute
     """
-    if not hasattr(a_class, attribute):
+    if not hasattr(a_class, '__dict__'):
         raise TypeError("can't add new attribute")
+    if hasattr(a_class, '__slots__'):
+        if attribute not in a_class.__slots__:
+            raise TypeError("can't add new attribute")
     a_class.attribute = value

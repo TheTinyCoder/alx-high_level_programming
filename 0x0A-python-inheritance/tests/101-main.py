@@ -7,8 +7,8 @@ class MyClass():
     pass
 
 mc = MyClass()
-add_attribute(mc, "name", "John")
-print(mc.name)
+add_attribute(mc, "hbtn", "Holberton")
+print(mc.hbtn)
 
 try:
     a = "My String"
@@ -16,3 +16,14 @@ try:
     print(a.name)
 except Exception as e:
     print("[{}] {}".format(e.__class__.__name__, e))
+
+class MyClass(int):
+    pass
+
+try:
+    a = MyClass()
+    add_attribute(a, "hbtn", "Holberton")
+    print(a.name)
+except Exception as e:
+    print("[{}] {}".format(e.__class__.__name__, e))
+
