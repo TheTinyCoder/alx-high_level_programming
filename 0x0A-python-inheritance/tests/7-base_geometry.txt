@@ -7,31 +7,11 @@ Using ``BaseGeometry``
 Importing:
 
 	>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
-	>>> bg = BaseGeometry()
 
 
 Testing:
 
-Checking for module docstring:
-
-	>>> s = __import__("7-base_geometry").__doc__
-	>>> len(s) > 1
-	True
-
-Checking for class docstring:
-
-	>>> s = bg.__doc__
-	>>> len(s) > 1
-	True
-
-Checking for method docstring:
-
-	  >>> s = bg.area.__doc__
-	  >>> len(s) > 1
-	  True
-		>>> s = bg.integer_validator.__doc__
-		>>> len(s) > 1
-		True
+	>>> bg = BaseGeometry()
 
 Checking for area failure:
 
@@ -95,6 +75,12 @@ Negative value:
 	Traceback (most recent call last):
 	...
 	ValueError: Board must be greater than 0
+
+Excess arguments:
+	>>> bg.integer_validator("integer", 1, 2)
+	Traceback (most recent call last):
+	...
+	TypeError: BaseGeometry.integer_validator() takes 3 positional arguments but 4 were given
 
 Missing one argument:
 

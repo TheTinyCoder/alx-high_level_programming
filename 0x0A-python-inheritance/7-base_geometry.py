@@ -6,10 +6,14 @@ Defines a class BaseGeometry
 
 class BaseGeometry():
     """
-    Empty class
+    BaseGeometry class
     """
     def area(self):
-        """Method not implemented"""
+        """
+        Method not implemented
+        Raises:
+            Exception if method is called
+        """
         raise Exception("area() is not implemented")
 
     def integer_validator(self, name, value):
