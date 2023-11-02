@@ -7,6 +7,10 @@ Using ``BaseGeometry``
 Importing:
 
 	>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+	>>> module_doc = __import__('7-base_geometry').__doc__
+	>>> class_doc = __import__('7-base_geometry').BaseGeometry.__doc__
+	>>> method1_doc = __import__('7-base_geometry').BaseGeometry.area.__doc__
+	>>> method2_doc = __import__('7-base_geometry').BaseGeometry.integer_validator.__doc__
 
 
 Testing:
@@ -95,3 +99,17 @@ Missing two arguments:
     Traceback (most recent call last):
 		...
     TypeError: BaseGeometry.integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+Docstring tests:
+
+	>>> print(len(module_doc) > 0)
+	True
+
+	>>> print(len(class_doc) > 0)
+	True
+
+	>>> print(len(method1_doc) > 0)
+	True
+
+	>>> print(len(method2_doc) > 0)
+	True
