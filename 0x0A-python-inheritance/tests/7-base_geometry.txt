@@ -8,9 +8,9 @@ Importing:
 
 	>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 	>>> module_doc = __import__('7-base_geometry').__doc__
-	>>> class_doc = __import__('7-base_geometry').BaseGeometry.__doc__
-	>>> method1_doc = __import__('7-base_geometry').BaseGeometry.area.__doc__
-	>>> method2_doc = __import__('7-base_geometry').BaseGeometry.integer_validator.__doc__
+	>>> class_doc = BaseGeometry.__doc__
+	>>> method1_doc = BaseGeometry.area.__doc__
+	>>> method2_doc = BaseGeometry.integer_validator.__doc__
 
 
 Testing:
@@ -44,25 +44,36 @@ String as value:
 	TypeError: Board must be an integer
 
 Float as value:
+
 	>>> bg.integer_validator("Board", 3.3)
 	Traceback (most recent call last):
 	...
 	TypeError: Board must be an integer
 
 Bool as value:
+
 	>>> bg.integer_validator("Board", True)
 	Traceback (most recent call last):
 	...
 	TypeError: Board must be an integer
 
 Tuple as value:
+
 	>>> bg.integer_validator("Board", (3,))
 	Traceback (most recent call last):
 	...
 	TypeError: Board must be an integer
 
 List as value:
+
 	>>> bg.integer_validator("Board", [3])
+	Traceback (most recent call last):
+	...
+	TypeError: Board must be an integer
+
+Dict as value:
+
+	>>> bg.integer_validator("Board", {3, 4})
 	Traceback (most recent call last):
 	...
 	TypeError: Board must be an integer
@@ -75,12 +86,14 @@ Zero as value:
 	ValueError: Board must be greater than 0
 
 Negative value:
+
 	>>> bg.integer_validator("Board", -3)
 	Traceback (most recent call last):
 	...
 	ValueError: Board must be greater than 0
 
 Excess arguments:
+
 	>>> bg.integer_validator("integer", 1, 2)
 	Traceback (most recent call last):
 	...
