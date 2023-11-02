@@ -16,4 +16,7 @@ def add_attribute(a_class, attribute, value):
     """
     if not hasattr(a_class, '__dict__'):
         raise TypeError("can't add new attribute")
-    a_class.attribute = value
+    elif hasattr(a_class, '__slots__'):
+        if attribute not in a_class.__slots__:
+            raise TypeError("can't add new attribute")
+    setattr(a_class, attribute, value)
