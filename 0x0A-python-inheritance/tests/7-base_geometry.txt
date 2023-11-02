@@ -35,6 +35,12 @@ Float as value:
 	...
 	TypeError: Board must be an integer
 
+Bool as value:
+	>>> bg.integer_validator("Board", True)
+	Traceback (most recent call last):
+	...
+	TypeError: Board must be an integer
+
 Zero as value:
 
 	>>> bg.integer_validator("Board", 0)
