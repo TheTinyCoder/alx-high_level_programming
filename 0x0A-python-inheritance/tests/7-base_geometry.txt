@@ -12,15 +12,45 @@ Importing:
 
 Testing:
 
+Checking for module docstring:
+
+	>>> s = __import__("7-base_geometry").__doc__
+	>>> len(s) > 1
+	True
+
+Checking for class docstring:
+
+	>>> s = bg.__doc__
+	>>> len(s) > 1
+	True
+
+Checking for method docstring:
+
+	  >>> s = bg.area.__doc__
+	  >>> len(s) > 1
+	  True
+		>>> s = bg.integer_validator.__doc__
+		>>> len(s) > 1
+		True
+
+Checking for area failure:
+
+	>>> bg.area()
+	Traceback (most recent call last):
+	...
+	Exception: area() is not implemented
+
+Regular tests:
+
 	>>> bg.integer_validator("my_int", 12)
 	>>> bg.integer_validator("width", 89)
 
-Zero as value:
+None as value:
 
-	>>> bg.integer_validator("Board", 0)
+	>>> bg.integer_validator("Board", None)
 	Traceback (most recent call last):
 	...
-	ValueError: Board must be greater than 0
+	TypeError: Board must be an integer
 
 String as value:
 
@@ -37,6 +67,18 @@ Float as value:
 
 Bool as value:
 	>>> bg.integer_validator("Board", True)
+	Traceback (most recent call last):
+	...
+	TypeError: Board must be an integer
+
+Tuple as value:
+	>>> bg.integer_validator("Board", (3,))
+	Traceback (most recent call last):
+	...
+	TypeError: Board must be an integer
+
+List as value:
+	>>> bg.integer_validator("Board", [3])
 	Traceback (most recent call last):
 	...
 	TypeError: Board must be an integer
