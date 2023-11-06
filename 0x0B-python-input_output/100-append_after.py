@@ -19,5 +19,6 @@ def append_after(filename="", search_string="", new_string=""):
         for line in lines:
             if search_string.lower() in line.lower():
                 # lines.insert(lines.index(line) + 1, new_string)
-                lines[lines.index(line)] = line + new_string
-        f.writelines(lines)
+                f.write(line + new_string)
+                continue
+            f.write(line)
