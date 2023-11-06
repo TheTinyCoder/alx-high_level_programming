@@ -28,9 +28,9 @@ class Student():
 
     def reload_from_json(self, json):
         if json:
-            if (json["first_name"] is not None):
+            if ("first_name" in json):
                 self.first_name = json["first_name"]
-            if (json["last_name"] is not None):
+            if ("last_name" in json):
                 self.last_name = json["last_name"]
-            if (json["age"] is not None):
+            if ("age" in json):
                 self.age = json["age"]
