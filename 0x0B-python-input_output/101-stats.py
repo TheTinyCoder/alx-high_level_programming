@@ -20,6 +20,7 @@ try:
             for (k, v) in sorted(status.items()):
                 if v != 0:
                     print(f"{k}: {v}")
+        sys.stdout.flush()
 except KeyboardInterrupt:
     print(f"File size: {totalFileSize}")
     for (k, v) in sorted(status.items()):
