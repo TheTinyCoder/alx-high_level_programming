@@ -1,30 +1,37 @@
 #!/usr/bin/python3
-''' script that reads stdin line by line and computes metrics '''
+"""
+Module that reads stdin line by line and computes metrics
+"""
 
 import sys
 
-total_size = 0
-status_codes = {200: 0, 301: 0, 400: 0, 401: 0, 403: 0, 404: 0, 405: 0, 500: 0}
+totalFileSize = 0
+status = {200: 0, 301: 0, 400: 0, 401: 0, 403: 0, 404: 0, 405: 0, 500: 0}
 line_count = 0
+
+
+def print_log(size, status):
+    """
+    Prints parsed log
+    Args:
+        size (int): total file size
+        status (dict): dict with status codes and no. of lines they're on
+    """
+    print(f"File size: {size}")
+    for (k, v) in sorted(status.items()):
+        if v != 0:
+            print(f"{k}: {v}")
+
 
 try:
     for line in sys.stdin:
+        log = line.split()
+        totalFileSize += int(log[-1])
+        if int(log[-2]) in status.keys():
+            status[int(log[-2])] += 1
         line_count += 1
-        tokens = line.split()
-        total_size += int(tokens[-1])
-        try:
-            status_codes[int(tokens[-2])] += 1
-        except KeyError:
-            pass
         if line_count % 10 == 0:
-            print("File size: {}".format(total_size))
-            for k in sorted(status_codes.keys()):
-                if status_codes[k] != 0:
-                    print("{}: {}".format(k, status_codes[k]))
-        sys.stdout.flush()
-
+            print_log(totalFileSize, status)
 except KeyboardInterrupt:
-    print("File size: {}".format(total_size))
-    for k in sorted(status_codes.keys()):
-        if status_codes[k] != 0:
-            print("{}: {}".format(k, status_codes[k]))
+    print_log(totalFileSize, status)
+print_log(totalFileSize, status)
