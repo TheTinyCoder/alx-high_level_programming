@@ -34,7 +34,7 @@ try:
             pass
         if line_count % 10 == 0:
             print_log(totalFileSize, status)
+    # For lines less than 10
+    print_log(totalFileSize, status)
 except KeyboardInterrupt:
     print_log(totalFileSize, status)
-# For lines less than 10
-# print_log(totalFileSize, status)
