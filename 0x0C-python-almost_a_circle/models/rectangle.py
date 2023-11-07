@@ -16,7 +16,7 @@ class Rectangle(Base):
 
     def __init__(self, width, height, x=0, y=0, id=None):
         """Initializes instances"""
-        super().id
+        super()__init__().id
         self.width = width
         self.height = height
         self.x = x
@@ -25,39 +25,39 @@ class Rectangle(Base):
     @width.setter
     def width(self, width):
         """setter for width"""
-        self.width = width
+        self.__width = width
 
     @property
     def width(self):
         """getter for width"""
-        return self.width
+        return self.__width
 
     @height.setter
     def height(self, height):
         """setter for height"""
-        self.height = height
+        self.__height = height
 
     @property
     def height(self):
         """getter for height"""
-        return self.height
+        return self.__height
 
     @x.setter
     def x(self, x):
         """setter for x"""
-        self.x = x
+        self.__x = x
 
     @property
     def x(self):
         """getter for x"""
-        return self.x
+        return self.__x
 
     @y.setter
     def y(self, y):
         """setter for y"""
-        self.y = y
+        self.__y = y
 
     @property
     def y(self):
         """getter for y"""
-        return self.y
+        return self.__y
