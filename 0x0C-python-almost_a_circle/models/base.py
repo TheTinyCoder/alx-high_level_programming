@@ -6,7 +6,7 @@ class Base:
     """
     Base class
     Attributes:
-        __nb_objects (int; private class attribute)
+        nb_objects (int: private class attribute)
     """
     __nb_objects = 0
 
