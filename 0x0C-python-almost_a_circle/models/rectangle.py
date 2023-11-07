@@ -1,16 +1,19 @@
 #!/usr/bin/python3
-"""
-Module for Rectangle
-Inherits from Base
-"""
+"""Rectangle Module"""
+
 from models.base import Base
 
 
 class Rectangle(Base):
-    """Class Rectangle: inherits from Base class"""
-
+    """
+    Class Rectangle: inherits from Base
+    Attributes:
+        width (int: private instance attribute)
+        height (int: private instance attribute)
+        x (int: private instance attribute)
+        y (int: private instance attribute)
+    """
     def __init__(self, width, height, x=0, y=0, id=None):
-        """Initializes instances"""
         super().__init__(id)
         self.width = width
         self.height = height
