@@ -26,12 +26,15 @@ def print_log(size, status):
 try:
     for line in sys.stdin:
         log = line.split()
-        totalFileSize += int(log[-1])
-        if int(log[-2]) in status.keys():
+        try:
+            totalFileSize += int(log[-1])
             status[int(log[-2])] += 1
-        line_count += 1
+            line_count += 1
+        except (KeyError, ValueError):
+            pass
         if line_count % 10 == 0:
             print_log(totalFileSize, status)
 except KeyboardInterrupt:
     print_log(totalFileSize, status)
-print_log(totalFileSize, status)
+# For lines less than 10
+# print_log(totalFileSize, status)
