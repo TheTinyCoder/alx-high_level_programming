@@ -1,52 +1,63 @@
 #!/usr/bin/python3
 """Rectangle Module"""
 
+from models.base import Base
+
 
 class Rectangle(Base):
     """
     Rectangle class: inherits from Base class
     Attributes:
-        __width (int; private instance attribute)
-        __height (int; private instance attribute)
-        __x (int; private instance attribute)
-        __y (int; private instance attribute)
+        width (int; private instance attribute)
+        height (int; private instance attribute)
+        x (int; private instance attribute)
+        y (int; private instance attribute)
     """
 
     def __init__(self, width, height, x=0, y=0, id=None):
+        """Initializes instances"""
         super().id
-        self.__width = width
-        self.__height = height
-        self.__x = x
-        self.__y = y
+        self.width = width
+        self.height = height
+        self.x = x
+        self.y = y
 
-    def set_width(self, width):
+    @width.setter
+    def width(self, width):
         """setter for width"""
-        self.__width = width
+        self.width = width
 
-    def get_width(self):
+    @property
+    def width(self):
         """getter for width"""
-        return self.__width
+        return self.width
 
-    def set_height(self, height):
+    @height.setter
+    def height(self, height):
         """setter for height"""
-        self.__height = height
+        self.height = height
 
-    def get_height(self):
+    @property
+    def height(self):
         """getter for height"""
-        return self.__height
+        return self.height
 
-    def set_x(self, x):
+    @x.setter
+    def x(self, x):
         """setter for x"""
-        self.__x = x
+        self.x = x
 
-    def get_x(self):
+    @property
+    def x(self):
         """getter for x"""
-        return self.__x
+        return self.x
 
-    def set_y(self, y):
+    @y.setter
+    def y(self, y):
         """setter for y"""
-        self.__y = y
+        self.y = y
 
-    def get_y(self):
+    @property
+    def y(self):
         """getter for y"""
-        return self.__y
+        return self.y
