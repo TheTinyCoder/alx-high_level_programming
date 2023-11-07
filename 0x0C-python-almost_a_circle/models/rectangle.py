@@ -22,7 +22,11 @@ class Rectangle(Base):
 
     @width.setter
     def width(self, width):
-        """setter for width"""
+        """
+        setter for width
+        Args:
+            width
+        """
         self.__width = width
 
     @property
@@ -32,7 +36,11 @@ class Rectangle(Base):
 
     @height.setter
     def height(self, height):
-        """setter for height"""
+        """
+        setter for height
+        Args:
+            height
+        """
         self.__height = height
 
     @property
@@ -42,7 +50,11 @@ class Rectangle(Base):
 
     @x.setter
     def x(self, x):
-        """setter for x"""
+        """
+        setter for x
+        Args:
+            x
+        """
         self.__x = x
 
     @property
@@ -52,7 +64,11 @@ class Rectangle(Base):
 
     @y.setter
     def y(self, y):
-        """setter for y"""
+        """
+        setter for y
+        Args:
+            y
+        """
         self.__y = y
 
     @property
