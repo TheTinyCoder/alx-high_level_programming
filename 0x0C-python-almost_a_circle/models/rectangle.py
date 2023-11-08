@@ -80,3 +80,9 @@ class Rectangle(Base):
         """setter for y"""
         if self.integer_validator("y", y) is None:
             self.__y = y
+
+    def area(self):
+        """
+        Computes area of a rectangle instance
+        """
+        return (self.width * self.height)
