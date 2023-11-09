@@ -59,6 +59,14 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(self.rectangle_1.x, 0)
         self.assertEqual(self.rectangle_1.y, 0)
         self.assertEqual(self.rectangle_1.id, 1)
+        self.assertEqual(
+            list(Rectangle(1, 2).__dict__.values()), [3, 1, 2, 0, 0])
+        self.assertEqual(
+            list(Rectangle(1, 2, 3).__dict__.values()), [4, 1, 2, 3, 0])
+        self.assertEqual(
+            list(Rectangle(1, 2, 3, 4).__dict__.values()), [5, 1, 2, 3, 4])
+        self.assertEqual(
+            list(Rectangle(1, 2, 3, 4, 5).__dict__.values()), [5, 1, 2, 3, 4])
 
     def test_area(self):
         """Test area function"""
