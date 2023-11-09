@@ -39,45 +39,45 @@ class Rectangle(Base):
 
     @property
     def width(self):
-        """getter for width"""
+        """Getter for width"""
         return self.__width
 
     @width.setter
     def width(self, width):
-        """setter for width"""
+        """Setter for width"""
         if self.integer_validator("width", width) is None:
             self.__width = width
 
     @property
     def height(self):
-        """getter for height"""
+        """Getter for height"""
         return self.__height
 
     @height.setter
     def height(self, height):
-        """setter for height"""
+        """Setter for height"""
         if self.integer_validator("height", height) is None:
             self.__height = height
 
     @property
     def x(self):
-        """getter for x"""
+        """Getter for x"""
         return self.__x
 
     @x.setter
     def x(self, x):
-        """setter for x"""
+        """Setter for x"""
         if self.integer_validator("x", x) is None:
             self.__x = x
 
     @property
     def y(self):
-        """getter for y"""
+        """Getter for y"""
         return self.__y
 
     @y.setter
     def y(self, y):
-        """setter for y"""
+        """Setter for y"""
         if self.integer_validator("y", y) is None:
             self.__y = y
 
@@ -88,13 +88,20 @@ class Rectangle(Base):
         return (self.width * self.height)
 
     def display(self):
-        """prints in stdout a rectangle instance with the character #"""
+        """Prints in stdout a rectangle instance with the character #"""
         for i in range(self.y):
             print()
         for i in range(self.height):
             print((' ' * self.x) + ('#' * self.width))
 
     def __str__(self):
-        """returns informal string representation of rectangle instance"""
+        """Returns informal string representation of rectangle instance"""
         return (f"[Rectangle] ({self.id}) "
                 f"{self.x}/{self.y} - {self.width}/{self.height}")
+
+    def update(self, *args):
+        """Updates values of instance attributes"""
+        order = ["id", "_Rectangle__width",
+                 "_Rectangle__height", "_Rectangle__x", "_Rectangle__y"]
+        for i in range(len(args)):
+            self.__dict__[order[i]] = args[i]

@@ -86,5 +86,24 @@ class TestRectangle(unittest.TestCase):
         file = io.StringIO()
         sys.stdout = file
         print(self.rectangle_1)
-        sys.stdout= sys.__stdout__
+        sys.stdout = sys.__stdout__
         self.assertTrue(file.getvalue()[:-1] == "[Rectangle] (1) 0/0 - 10/10")
+
+    def test_update(self):
+        """Test update function"""
+        self.rectangle_2.update(3)
+        self.assertEqual(self.rectangle_2.id, 3)
+        self.rectangle_2.update(4, 15)
+        self.assertEqual(self.rectangle_2.id, 4)
+        self.assertEqual(self.rectangle_2.width, 15)
+        self.rectangle_2.update(5, 20, 20, 2)
+        self.assertEqual(self.rectangle_2.id, 5)
+        self.assertEqual(self.rectangle_2.width, 20)
+        self.assertEqual(self.rectangle_2.height, 20)
+        self.assertEqual(self.rectangle_2.x, 2)
+        self.rectangle_2.update(2, 10, 10, 1, 1)
+        self.assertEqual(self.rectangle_2.id, 2)
+        self.assertEqual(self.rectangle_2.width, 10)
+        self.assertEqual(self.rectangle_2.height, 10)
+        self.assertEqual(self.rectangle_2.x, 1)
+        self.assertEqual(self.rectangle_2.y, 1)
