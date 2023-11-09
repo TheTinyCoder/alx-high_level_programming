@@ -99,9 +99,15 @@ class Rectangle(Base):
         return (f"[Rectangle] ({self.id}) "
                 f"{self.x}/{self.y} - {self.width}/{self.height}")
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """Updates values of instance attributes"""
         order = ["id", "_Rectangle__width",
                  "_Rectangle__height", "_Rectangle__x", "_Rectangle__y"]
-        for i in range(len(args)):
-            self.__dict__[order[i]] = args[i]
+        if (len(args) > 0):
+            for i in range(len(args)):
+                self.__dict__[order[i]] = args[i]
+        else:
+            keys = ["id", "width", "height", "x", "y"]
+            for (k, v) in kwargs.items():
+                if k in keys:
+                    self.__dict__[order[keys.index(k)]] = v
