@@ -28,7 +28,6 @@ class Square(Rectangle):
             self.width = size
             self.height = size
 
-
     def __str__(self):
         """Returns informal string representation of square instance"""
         return (f"[Square] ({self.id}) "
