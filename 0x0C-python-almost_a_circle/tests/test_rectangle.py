@@ -88,6 +88,18 @@ class TestRectangle(unittest.TestCase):
         height = self.rectangle_2.height + y
         self.assertTrue(all(i == width for i in count[y:]))
         self.assertTrue(len(count) == height)
+        sys.stdout = file = io.StringIO()
+        self.rectangle_1.display()
+        sys.stdout = sys.__stdout__
+        count = []
+        for line in file.getvalue().split('\n')[:-1]:
+            count.append(len(line))
+        y = self.rectangle_1.y
+        width = self.rectangle_1.width + self.rectangle_1.x
+        height = self.rectangle_1.height + y
+        self.assertTrue(all(i == width for i in count[y:]))
+        self.assertTrue(len(count) == height)
+
 
     def test_str(self):
         """Test __str__"""
