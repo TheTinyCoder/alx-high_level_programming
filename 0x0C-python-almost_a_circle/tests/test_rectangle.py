@@ -77,3 +77,11 @@ class TestRectangle(unittest.TestCase):
             count.append(len(line))
         self.assertTrue(all(i == self.rectangle_1.width for i in count))
         self.assertTrue(len(count) == self.rectangle_1.height)
+
+    def test_str(self):
+        """Test __str__"""
+        file = io.StringIO()
+        sys.stdout = file
+        print(self.rectangle_1)
+        sys.stdout= sys.__stdout__
+        self.assertTrue(file.getvalue()[:-1] == "[Rectangle] (1) 0/0 - 10/10")
