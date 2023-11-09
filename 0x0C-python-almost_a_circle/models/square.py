@@ -18,4 +18,5 @@ class Square(Rectangle):
 
     def __str__(self):
         """Returns informal string representation of square instance"""
-        return (super().__str__().replace("Rectangle", "Square"))
+        return (f"[Square] ({self.id}) "
+                f"{self.x}/{self.y} - {self.width}")

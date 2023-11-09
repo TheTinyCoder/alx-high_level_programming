@@ -96,7 +96,7 @@ class TestSquare(unittest.TestCase):
         sys.stdout = file
         print(self.square_1)
         sys.stdout = sys.__stdout__
-        self.assertTrue(file.getvalue()[:-1] == "[Square] (1) 0/0 - 10/10")
+        self.assertTrue(file.getvalue()[:-1] == "[Square] (1) 0/0 - 10")
 
 
 """
