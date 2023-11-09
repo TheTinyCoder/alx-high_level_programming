@@ -98,6 +98,15 @@ class TestSquare(unittest.TestCase):
         sys.stdout = sys.__stdout__
         self.assertTrue(file.getvalue()[:-1] == "[Square] (1) 0/0 - 10")
 
+    def test_size(self):
+        """Test size property"""
+        s1 = Square(5)
+        self.assertEqual(s1.size, 5)
+        with self.assertRaises(TypeError) as err:
+            s1.size = "9"
+            self.assertEqual(
+                "[TypeError] width must be an integer", err.exception)
+
 
 """
     def test_update(self):
