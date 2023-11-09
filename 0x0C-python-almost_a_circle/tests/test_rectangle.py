@@ -2,7 +2,8 @@
 """
 Rectangle Test Module
 """
-
+import io
+import sys
 import unittest
 from models.base import Base
 from models.rectangle import Rectangle
@@ -62,3 +63,17 @@ class TestRectangle(unittest.TestCase):
     def test_area(self):
         """Test area function"""
         self.assertEqual(self.rectangle_1.area(), 100)
+
+    def test_display(self):
+        """Test string printed"""
+        file = io.StringIO()
+        # redirect output stream to StringIO (in memory file)
+        sys.stdout = file
+        self.rectangle_1.display()
+        # restore output stream to terminal
+        sys.stdout = sys.__stdout__
+        count = []
+        for line in file.getvalue().split('\n')[:-1]:
+            count.append(len(line))
+        self.assertTrue(all(i == self.rectangle_1.width for i in count))
+        self.assertTrue(len(count) == self.rectangle_1.height)
