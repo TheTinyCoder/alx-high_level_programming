@@ -15,7 +15,7 @@ class TestRectangle(unittest.TestCase):
         """Set up test class"""
         Base._Base__nb_objects = 0
         self.rectangle_1 = Rectangle(10, 10)
-        self.rectangle_2 = Rectangle(10, 10)
+        self.rectangle_2 = Rectangle(10, 10, 1, 1)
 
     def test_args(self):
         """Test missing and excess arguments"""
@@ -69,14 +69,17 @@ class TestRectangle(unittest.TestCase):
         file = io.StringIO()
         # redirect output stream to StringIO (in memory file)
         sys.stdout = file
-        self.rectangle_1.display()
+        self.rectangle_2.display()
         # restore output stream to terminal
         sys.stdout = sys.__stdout__
         count = []
         for line in file.getvalue().split('\n')[:-1]:
             count.append(len(line))
-        self.assertTrue(all(i == self.rectangle_1.width for i in count))
-        self.assertTrue(len(count) == self.rectangle_1.height)
+        y = self.rectangle_2.y
+        width = self.rectangle_2.width + self.rectangle_2.x
+        height = self.rectangle_2.height + y
+        self.assertTrue(all(i == width for i in count[y:]))
+        self.assertTrue(len(count) == height)
 
     def test_str(self):
         """Test __str__"""
