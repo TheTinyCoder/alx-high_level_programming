@@ -38,6 +38,8 @@ class TestSquare(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.square = Square(-10)
         with self.assertRaises(ValueError):
+            self.square = Square(10, -10)
+        with self.assertRaises(ValueError):
             self.square = Square(10, 10, -10)
 
     def test_instance(self):
