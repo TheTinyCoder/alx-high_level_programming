@@ -29,7 +29,7 @@ class TestBase(unittest.TestCase):
         self.assertEqual(self.base_3.id, 10)
 
     def test_to_json_string(self):
-        json = Base.to_json_string(Square(10).to_dictionary())
+        json = Base.to_json_string([Square(10).to_dictionary()])
         self.assertTrue(isinstance(json, str))
-        json = Base.to_json_string(Rectangle(10, 10).to_dictionary())
+        json = Base.to_json_string([Rectangle(10, 10).to_dictionary()])
         self.assertTrue(isinstance(json, str))
