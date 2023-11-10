@@ -63,6 +63,9 @@ class Base:
         Args:
             dictionary (dict: double pointer to a dictionary)
         """
-        new_class = cls(10, 10)
+        if cls.__name__ == "Rectangle":
+            new_class = cls(10, 10)
+        else:
+            new_class = cls(10)
         new_class.update(**dictionary)
         return new_class
