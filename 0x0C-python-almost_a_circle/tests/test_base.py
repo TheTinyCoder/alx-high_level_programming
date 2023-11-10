@@ -108,9 +108,75 @@ class TestBase(unittest.TestCase):
         self.assertEqual(file1.getvalue(), file2.getvalue())
         s1 = Square(10)
         s2 = Square(4)
-        list_rectangles_input = [s1, s2]
-        Square.save_to_file(list_rectangles_input)
+        list_squares_input = [s1, s2]
+        Square.save_to_file(list_squares_input)
         s3, s4 = Square.load_from_file()
+        sys.stdout = file1 = io.StringIO()
+        print(s1)
+        sys.stdout = file2 = io.StringIO()
+        print(s3)
+        sys.stdout = sys.__stdout__
+        self.assertEqual(file1.getvalue(), file2.getvalue())
+        sys.stdout = file1 = io.StringIO()
+        print(s2)
+        sys.stdout = file2 = io.StringIO()
+        print(s4)
+        sys.stdout = sys.__stdout__
+        self.assertEqual(file1.getvalue(), file2.getvalue())
+
+    def test_save_to_file_csv(self):
+        """Test save_to_file_csv function"""
+        Rectangle.save_to_file_csv(None)
+        with open("Rectangle.csv", "r") as file:
+            self.assertEqual(file.read(), "\n")
+        r1, r2 = Rectangle(3, 4), Rectangle(5, 8, 1)
+        Rectangle.save_to_file_csv([r1, r2])
+        with open("Rectangle.csv", "r") as file:
+            i = 0
+            a_list = ["width,height,x,y", "3,4,0,0", "5,8,1,0"]
+            sys.stdout = file1 = io.StringIO()
+            print(file.read())
+            sys.stdout = sys.__stdout__
+            for line in file1.getvalue().split('\n')[:-2]:
+                line = ",".join(line.split(',')[1:])
+                self.assertTrue(line == a_list[i])
+                i += 1
+        Square.save_to_file_csv([Square(10, 0, 0, 3)])
+        with open("Square.csv", "r") as file:
+            i = 0
+            a_list = ["size,x,y", "10,0,0"]
+            sys.stdout = file1 = io.StringIO()
+            print(file.read())
+            sys.stdout = sys.__stdout__
+            for line in file1.getvalue().split('\n')[:-2]:
+                line = ",".join(line.split(',')[1:])
+                self.assertTrue(line == a_list[i])
+                i += 1
+
+    def test_load_from_file_csv(self):
+        """Test load_from_file_csv function"""
+        r1 = Rectangle(10, 7)
+        r2 = Rectangle(2, 4)
+        list_rectangles_input = [r1, r2]
+        Rectangle.save_to_file_csv(list_rectangles_input)
+        r3, r4 = Rectangle.load_from_file_csv()
+        sys.stdout = file1 = io.StringIO()
+        print(r1)
+        sys.stdout = file2 = io.StringIO()
+        print(r3)
+        sys.stdout = sys.__stdout__
+        self.assertEqual(file1.getvalue(), file2.getvalue())
+        sys.stdout = file1 = io.StringIO()
+        print(r2)
+        sys.stdout = file2 = io.StringIO()
+        print(r4)
+        sys.stdout = sys.__stdout__
+        self.assertEqual(file1.getvalue(), file2.getvalue())
+        s1 = Square(10)
+        s2 = Square(4)
+        list_squares_input = [s1, s2]
+        Square.save_to_file_csv(list_squares_input)
+        s3, s4 = Square.load_from_file_csv()
         sys.stdout = file1 = io.StringIO()
         print(s1)
         sys.stdout = file2 = io.StringIO()

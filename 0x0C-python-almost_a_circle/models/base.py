@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Base Module"""
 import json
+import csv
 
 
 class Base:
@@ -72,10 +73,40 @@ class Base:
 
     @classmethod
     def load_from_file(cls):
+        """Returns a list of instances from JSON file"""
         filename = cls.__name__ + ".json"
         try:
             with open(filename, mode='r') as f:
                 dict_list = cls.from_json_string(f.read())
+            return ([cls.create(**i) for i in dict_list])
+        except FileNotFoundError:
+            return ([])
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+        Serializes list_objs in CSV
+        Args:
+            list_objs: list of instances that inherit from Base
+        """
+        filename = cls.__name__ + ".csv"
+        with open(filename, mode='w') as file:
+            if list_objs is None:
+                csv.writer(file).writerow([])
+            else:
+                dict_list = [i.to_dictionary() for i in list_objs]
+                w = csv.DictWriter(file, dict_list[0].keys())
+                w.writeheader()
+                w.writerows(dict_list)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """Returns a list of instances from CSV"""
+        filename = cls.__name__ + ".csv"
+        try:
+            with open(filename, mode='r') as file:
+                dict_list = [{k: int(v) for (k, v) in row.items()}
+                             for row in csv.DictReader(file)]
             return ([cls.create(**i) for i in dict_list])
         except FileNotFoundError:
             return ([])
