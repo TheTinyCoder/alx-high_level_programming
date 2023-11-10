@@ -12,7 +12,7 @@ class Rectangle(Base):
         height (int: private instance attribute)
         x (int: private instance attribute)
         y (int: private instance attribute)
-        id (int: public instance variable)
+        id (int: public instance attribute)
     """
     def __init__(self, width, height, x=0, y=0, id=None):
         super().__init__(id)
