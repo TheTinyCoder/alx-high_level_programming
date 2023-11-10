@@ -40,7 +40,7 @@ class Base:
         filename = cls.__name__ + ".json"
         with open(filename, mode='w') as file:
             if list_objs is None:
-                json.dump([], file)
+                file.write(cls.to_json_string(list_objs))
             else:
                 dict_list = [i.to_dictionary() for i in list_objs]
-                json.dump(dict_list, file)
+                file.write(cls.to_json_string(dict_list))
