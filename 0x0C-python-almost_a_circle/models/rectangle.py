@@ -122,7 +122,7 @@ class Rectangle(Base):
 
     def to_dictionary(self):
         """Returns dictionary representation of a Rectangle"""
-        a_dict = self.__dict__
+        a_dict = self.__dict__.copy()
         a_dict["width"] = a_dict.pop("_Rectangle__width")
         a_dict["height"] = a_dict.pop("_Rectangle__height")
         a_dict["x"] = a_dict.pop("_Rectangle__x")
