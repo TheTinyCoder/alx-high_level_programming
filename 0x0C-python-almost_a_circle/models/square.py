@@ -32,3 +32,24 @@ class Square(Rectangle):
         """Returns informal string representation of square instance"""
         return (f"[Square] ({self.id}) "
                 f"{self.x}/{self.y} - {self.width}")
+
+    def update(self, *args, **kwargs):
+        """Updates values of instance attributes"""
+        order = ["id", "_Rectangle__width",
+                 "_Rectangle__height", "_Rectangle__x", "_Rectangle__y"]
+        if (len(args) > 0):
+            j = 0
+            for i in range(len(args)):
+                if i == 1:
+                    self.size = args[i]
+                    j += 2
+                    continue
+                self.__dict__[order[j]] = args[i]
+                j += 1
+        else:
+            keys = ["id", "width", "height", "x", "y"]
+            for (k, v) in kwargs.items():
+                if k == "size":
+                    self.size = v
+                elif k in keys:
+                    self.__dict__[order[keys.index(k)]] = v
