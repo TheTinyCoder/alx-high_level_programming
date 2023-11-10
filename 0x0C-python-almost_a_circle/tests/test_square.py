@@ -140,3 +140,9 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(self.square_2.height, 10)
         self.assertEqual(self.square_2.x, 1)
         self.assertEqual(self.square_2.y, 1)
+
+    def test_to_dictionary(self):
+        a_dict = self.square_1.to_dictionary()
+        self.assertEqual(
+            list(a_dict.keys()), ["id", "size", "x", "y"])
+        self.assertEqual(list(a_dict.values()), [1, 10, 0, 0])
