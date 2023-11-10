@@ -86,3 +86,40 @@ class TestBase(unittest.TestCase):
         print(s2)
         sys.stdout = sys.__stdout__
         self.assertEqual(file1.getvalue(), file2.getvalue())
+
+    def test_load_from_file(self):
+        """Test load_from_file function"""
+        r1 = Rectangle(10, 7)
+        r2 = Rectangle(2, 4)
+        list_rectangles_input = [r1, r2]
+        Rectangle.save_to_file(list_rectangles_input)
+        r3, r4 = Rectangle.load_from_file()
+        sys.stdout = file1 = io.StringIO()
+        print(r1)
+        sys.stdout = file2 = io.StringIO()
+        print(r3)
+        sys.stdout = sys.__stdout__
+        self.assertEqual(file1.getvalue(), file2.getvalue())
+        sys.stdout = file1 = io.StringIO()
+        print(r2)
+        sys.stdout = file2 = io.StringIO()
+        print(r4)
+        sys.stdout = sys.__stdout__
+        self.assertEqual(file1.getvalue(), file2.getvalue())
+        s1 = Square(10)
+        s2 = Square(4)
+        list_rectangles_input = [s1, s2]
+        Square.save_to_file(list_rectangles_input)
+        s3, s4 = Square.load_from_file()
+        sys.stdout = file1 = io.StringIO()
+        print(s1)
+        sys.stdout = file2 = io.StringIO()
+        print(s3)
+        sys.stdout = sys.__stdout__
+        self.assertEqual(file1.getvalue(), file2.getvalue())
+        sys.stdout = file1 = io.StringIO()
+        print(s2)
+        sys.stdout = file2 = io.StringIO()
+        print(s4)
+        sys.stdout = sys.__stdout__
+        self.assertEqual(file1.getvalue(), file2.getvalue())

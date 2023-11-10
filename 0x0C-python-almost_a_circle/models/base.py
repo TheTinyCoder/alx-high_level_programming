@@ -69,3 +69,13 @@ class Base:
             new_class = cls(10)
         new_class.update(**dictionary)
         return new_class
+
+    @classmethod
+    def load_from_file(cls):
+        filename = cls.__name__ + ".json"
+        try:
+            with open(filename, mode='r') as f:
+                dict_list = cls.from_json_string(f.read())
+            return ([cls.create(**i) for i in dict_list])
+        except FileNotFoundError:
+            return ([])
