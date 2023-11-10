@@ -100,7 +100,6 @@ class TestRectangle(unittest.TestCase):
         self.assertTrue(all(i == width for i in count[y:]))
         self.assertTrue(len(count) == height)
 
-
     def test_str(self):
         """Test __str__"""
         file = io.StringIO()

@@ -31,12 +31,14 @@ class TestBase(unittest.TestCase):
         self.assertEqual(self.base_3.id, 10)
 
     def test_to_json_string(self):
+        """Test to_json_string function"""
         json = Base.to_json_string([Square(10).to_dictionary()])
         self.assertTrue(isinstance(json, str))
         json = Base.to_json_string([Rectangle(10, 10).to_dictionary()])
         self.assertTrue(isinstance(json, str))
 
     def test_save_to_file(self):
+        """Test save_to_file function"""
         Rectangle.save_to_file(None)
         with open("Rectangle.json", "r") as file:
             self.assertEqual(file.read(), "[]")
@@ -52,3 +54,14 @@ class TestBase(unittest.TestCase):
             sys.stdout = sys.__stdout__
         self.assertEqual(
             file.getvalue()[:-1], '[{"id": 3, "size": 10, "x": 0, "y": 0}]')
+
+    def test_from_json_string(self):
+        """Test from_json_string function"""
+        json = Base.to_json_string([Square(10, 0, 0, 3).to_dictionary()])
+        self.assertTrue(isinstance(json, str))
+        self.assertTrue(isinstance(Base.from_json_string(json), list))
+        a_list = Base.from_json_string(json)
+        self.assertEqual(a_list, [{"id": 3, "size": 10, "x": 0, "y": 0}])
+        json = Base.to_json_string([Rectangle(10, 10).to_dictionary()])
+        self.assertTrue(isinstance(json, str))
+        self.assertTrue(isinstance(Base.from_json_string(json), list))
