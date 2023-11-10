@@ -12,6 +12,7 @@ class Rectangle(Base):
         height (int: private instance attribute)
         x (int: private instance attribute)
         y (int: private instance attribute)
+        id (int: public instance variable)
     """
     def __init__(self, width, height, x=0, y=0, id=None):
         super().__init__(id)
@@ -100,7 +101,14 @@ class Rectangle(Base):
                 f"{self.x}/{self.y} - {self.width}/{self.height}")
 
     def update(self, *args, **kwargs):
-        """Updates values of instance attributes"""
+        """
+        Updates values of instance attributes
+        If args:
+            (varied arguments treated as list) is present
+            kwargs is ignored
+        If length of args is zero:
+            kwargs (named arguments treated as dict) is used
+        """
         order = ["id", "_Rectangle__width",
                  "_Rectangle__height", "_Rectangle__x", "_Rectangle__y"]
         if (len(args) > 0):
@@ -111,3 +119,12 @@ class Rectangle(Base):
             for (k, v) in kwargs.items():
                 if k in keys:
                     self.__dict__[order[keys.index(k)]] = v
+
+    def to_dictionary(self):
+        """Returns dictionary representation of a Rectangle"""
+        a_dict = self.__dict__
+        a_dict["width"] = a_dict.pop("_Rectangle__width")
+        a_dict["height"] = a_dict.pop("_Rectangle__height")
+        a_dict["x"] = a_dict.pop("_Rectangle__x")
+        a_dict["y"] = a_dict.pop("_Rectangle__y")
+        return (a_dict)
