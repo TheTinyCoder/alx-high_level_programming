@@ -42,11 +42,20 @@ class TestBase(unittest.TestCase):
         Rectangle.save_to_file(None)
         with open("Rectangle.json", "r") as file:
             self.assertEqual(file.read(), "[]")
+        Rectangle.save_to_file([])
+        with open("Rectangle.json", "r") as file:
+            self.assertEqual(file.read(), "[]")
         r1, r2 = Rectangle(3, 4), Rectangle(5, 8, 1)
         Rectangle.save_to_file([r1, r2])
         with open("Rectangle.json", "r") as file:
             self.assertEqual(
                 json.load(file), [r1.to_dictionary(), r2.to_dictionary()])
+        Square.save_to_file(None)
+        with open("Square.json", "r") as file:
+            self.assertEqual(file.read(), "[]")
+        Square.save_to_file([])
+        with open("Square.json", "r") as file:
+            self.assertEqual(file.read(), "[]")
         Square.save_to_file([Square(10, 0, 0, 3)])
         with open("Square.json", "r") as f:
             sys.stdout = file = io.StringIO()
