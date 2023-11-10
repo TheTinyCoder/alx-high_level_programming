@@ -2,7 +2,8 @@
 """
 Base Test Module
 """
-
+import io
+import sys
 import unittest
 from models.base import Base
 from models.rectangle import Rectangle
@@ -33,3 +34,15 @@ class TestBase(unittest.TestCase):
         self.assertTrue(isinstance(json, str))
         json = Base.to_json_string([Rectangle(10, 10).to_dictionary()])
         self.assertTrue(isinstance(json, str))
+
+    def test_save_to_file(self):
+        Rectangle.save_to_file(None)
+        with open("Rectangle.json", "r") as file:
+            self.assertEqual(file.read(), "[]")
+        Square.save_to_file([Square(10)])
+        with open("Square.json", "r") as f:
+            sys.stdout = file = io.StringIO()
+            print(f.read())
+            sys.stdout = sys.__stdout__
+        self.assertEqual(
+            file.getvalue()[:-1], '[{"id": 3, "size": 10, "x": 0, "y": 0}]')
