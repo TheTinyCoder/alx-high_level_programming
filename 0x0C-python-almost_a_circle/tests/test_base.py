@@ -65,3 +65,24 @@ class TestBase(unittest.TestCase):
         json = Base.to_json_string([Rectangle(10, 10).to_dictionary()])
         self.assertTrue(isinstance(json, str))
         self.assertTrue(isinstance(Base.from_json_string(json), list))
+
+    def test_create(self):
+        """Test create function"""
+        r1 = Rectangle(3, 5, 1)
+        r1_dictionary = r1.to_dictionary()
+        r2 = Rectangle.create(**r1_dictionary)
+        sys.stdout = file1 = io.StringIO()
+        print(r1)
+        sys.stdout = file2 = io.StringIO()
+        print(r2)
+        sys.stdout = sys.__stdout__
+        self.assertEqual(file1.getvalue(), file2.getvalue())
+        s1 = Square(5)
+        s1_dictionary = s1.to_dictionary()
+        s2 = Square.create(**s1_dictionary)
+        sys.stdout = file1 = io.StringIO()
+        print(s1)
+        sys.stdout = file2 = io.StringIO()
+        print(s2)
+        sys.stdout = sys.__stdout__
+        self.assertEqual(file1.getvalue(), file2.getvalue())
