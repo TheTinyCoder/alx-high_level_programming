@@ -13,8 +13,8 @@ if __name__ == '__main__':
     cur = db.cursor()
     cur.execute(
         """
-        SELECT * FROM states WHERE name LIKE "N%"
-        COLLATE Latin1_general_CS_AI ORDER BY id;
+        SELECT * FROM states WHERE name
+        COLLATE Latin1_general_CS_AI LIKE "N%" ORDER BY id;
         """)
     states = cur.fetchall()
     for state in states:
