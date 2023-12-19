@@ -13,7 +13,9 @@ if __name__ == '__main__':
     cur = db.cursor()
     cur.execute(
         """
-        SELECT * FROM states WHERE name = "{}" ORDER BY id;
+        SELECT * FROM states WHERE name \
+        CONVERT(name USING utf8mb4) COLLATE utf8mb4_0900_as_cs  = "{}" \
+        ORDER BY id;
         """.format(sys.argv[4]))
     states = cur.fetchall()
     for state in states:
