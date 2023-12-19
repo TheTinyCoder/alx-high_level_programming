@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Lists all states with a name starting with N
+Lists all states with a name from user input
 from the database hbtn_0e_0_usa
 """
 
@@ -13,8 +13,8 @@ if __name__ == '__main__':
     cur = db.cursor()
     cur.execute(
         """
-        SELECT * FROM states WHERE name = "%s" ORDER BY id;
-        """, (sys.argv[4],))
+        SELECT * FROM states WHERE name = "{}" ORDER BY id;
+        """.format(sys.argv[4]))
     states = cur.fetchall()
     for state in states:
         print(state)
