@@ -19,9 +19,6 @@ if __name__ == '__main__':
         ORDER BY cities.id;
         """, (sys.argv[4], ))
     cities = cur.fetchall()
-    for index, city in enumerate(cities):
-        print(city)
-        if index < cities.length - 1:
-            print(", ")
+    print(", ".join([city[0] for city in cities]))
     cur.close()
     db.close()
