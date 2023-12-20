@@ -13,14 +13,14 @@ if __name__ == '__main__':
     cur = db.cursor()
     cur.execute(
         """
-        SELECT cities.name, states.name FROM cities \
+        SELECT cities.name FROM cities \
         JOIN states ON states.id = cities.state_id \
         WHERE states.name = %s
         ORDER BY cities.id;
-        """, (sys.argv[4]))
+        """, (sys.argv[4], ))
     cities = cur.fetchall()
     for index, city in enumerate(cities):
-        print(city[0])
+        print(city)
         if index < cities.length - 1:
             print(", ")
     cur.close()
