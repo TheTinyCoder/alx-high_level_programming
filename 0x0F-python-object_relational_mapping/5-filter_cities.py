@@ -15,7 +15,7 @@ if __name__ == '__main__':
         """
         SELECT cities.name FROM cities \
         JOIN states ON states.id = cities.state_id \
-        WHERE states.name = %s
+        WHERE states.name = %s \
         ORDER BY cities.id;
         """, (sys.argv[4], ))
     cities = cur.fetchall()
