@@ -13,7 +13,8 @@ if __name__ == '__main__':
                          passwd=args[2], db=args[3])
     state = args[4]
     cur = db.cursor()
-    query = "SELECT * FROM states WHERE name = '{}'".format(state)
+    query = ("SELECT * FROM states WHERE name = '{}' \
+             COLLATE utf8mb4_0900_as_cs").format(state)
     cur.execute(query)
     states = cur.fetchall()
     for row in states:
