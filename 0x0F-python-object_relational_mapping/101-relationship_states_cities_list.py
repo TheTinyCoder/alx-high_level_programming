@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
 Script that lists all State objects and corresponding City objects
-from the database hbtn_0e_6_usa
+from the database hbtn_0e_101_usa
 """
 
 from sqlalchemy import create_engine
