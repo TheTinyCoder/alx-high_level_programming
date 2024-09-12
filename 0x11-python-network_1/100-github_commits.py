@@ -17,6 +17,5 @@ if __name__ == "__main__":
             "name": commit['commit']['author']['name'],
             "date": commit['commit']['author']['date'],
             "sha": commit['sha']})
-    sorted_data = sorted(data, key=lambda x: x['date'])
     for x in range(10):
-        print(f"{sorted_data[x]['sha']}: {sorted_data[x]['name']}")
+        print(f"{data[x]['sha']}: {data[x]['name']}")
