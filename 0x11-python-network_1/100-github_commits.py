@@ -11,11 +11,8 @@ import requests
 if __name__ == "__main__":
     r = requests.get(
         f"https://api.github.com/repos/{sys.argv[2]}/{sys.argv[1]}/commits")
-    data = []
-    for commit in r.json():
-        data.append({
-            "name": commit['commit']['author']['name'],
-            "date": commit['commit']['author']['date'],
-            "sha": commit['sha']})
-    for x in range(10):
-        print(f"{data[x]['sha']}: {data[x]['name']}")
+    try:
+        for commit in r.json()[:10]:
+            print(f"{commit['sha']}: {commit['commit']['author']['name']}")
+    except IndexError:
+        pass
