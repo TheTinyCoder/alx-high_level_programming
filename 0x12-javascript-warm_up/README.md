@@ -261,7 +261,7 @@ Reference: [process.argv](https://nodejs.org/api/process.html#process_process_ar
 
   - You are not allowed to use `var`
 
- Script:
+ **Script:**
  ```
  #!/usr/bin/node
  const myObject = {
@@ -368,7 +368,7 @@ Hint: Scope
 
   - You are not allowed to use `var`
 
- Script:
+ **Script:**
  ```
  #!/usr/bin/node
  const myObject = {
