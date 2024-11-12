@@ -1,5 +1,5 @@
 $('document').ready(() => {
-  $('toggle_header').on('click', () => {
-    $('header').toggleClass('red green');
+  $('#add_item').on('click', () => {
+    $('.my_list').append('<li>Item</li>');
   });
 });
